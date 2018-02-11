@@ -1,0 +1,11 @@
+{
+  "name": "ht-drawer-logo",
+  "flat": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/maksimyurkov/ht-drawer-logo",
+  "author": "maksimyurkov <yurkovm@mail.ru>",
+  "dependencies": {
+    "@polymer/polymer": "^3.0.0-pre.7"
+  }
+}
