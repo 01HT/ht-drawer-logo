@@ -22,10 +22,8 @@ class HTDrawerLogo extends Element {
         
         a {
             display: flex;
-            letter-spacing: 2px;
             flex-direction: column;
             cursor: pointer;
-            text-transform: uppercase;
             align-items: center;
             text-decoration: none;
             color: inherit;
@@ -42,15 +40,16 @@ class HTDrawerLogo extends Element {
             flex-direction: row;
             justify-content: center;
             margin-top: 8px;
-            font-size: 18px;
-            
+            font-size: 22px;
         }
         
         #company {
             font-weight: 500;
         }
         
-        #service{
+        #app{
+            margin-left:2px;
+            font-weight: 300;
             color: var(--accent-color);
         }
       </style>
@@ -58,8 +57,8 @@ class HTDrawerLogo extends Element {
             <a href="[[href]]">
                 <img src="[[imageSrc]]" alt="[[serviceText]][[companyText]]">
                 <div id="text-container">
-                  <div id="service">[[serviceText]]</div>
-                  <div id="company">[[companyText]]</div>
+                    <div id="company">[[company]]</div>  
+                    <div id="app">[[app]]</div>
                 </div>
             </a>
         </div>
@@ -71,10 +70,10 @@ class HTDrawerLogo extends Element {
 
   static get properties() {
     return {
-      companyText: String,
-      
-      serviceText: String,
-      
+      company: String,
+
+      app: String,
+
       imageSrc: String,
 
       href: String
