@@ -1,10 +1,9 @@
 "use strict";
-import { Element } from "../@polymer/polymer/polymer-element.js";
+import { LitElement, html } from "../@polymer/lit-element/lit-element.js";
 
-class HTDrawerLogo extends Element {
-  static get template() {
-    return `
-      <style>
+class HTDrawerLogo extends LitElement {
+  render({ company, app, imageSrc, href }) {
+    return html`<style>
         :host {
             display: block;
             position: relative;
@@ -54,16 +53,16 @@ class HTDrawerLogo extends Element {
         }
       </style>
       <div id="container">
-            <a href="[[href]]">
-                <img src="[[imageSrc]]" alt="[[serviceText]][[companyText]]">
+            <a href="${href}">
+                <img src="${imageSrc}" alt="${company} ${app}">
                 <div id="text-container">
-                    <div id="company">[[company]]</div>  
-                    <div id="app">[[app]]</div>
+                    <div id="company">${company}</div>  
+                    <div id="app">${app}</div>
                 </div>
             </a>
-        </div>
-`;
+        </div>`;
   }
+
   static get is() {
     return "ht-drawer-logo";
   }
@@ -71,11 +70,8 @@ class HTDrawerLogo extends Element {
   static get properties() {
     return {
       company: String,
-
       app: String,
-
       imageSrc: String,
-
       href: String
     };
   }
