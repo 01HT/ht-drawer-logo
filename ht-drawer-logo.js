@@ -2,7 +2,7 @@
 import { LitElement, html } from "@polymer/lit-element";
 
 class HTDrawerLogo extends LitElement {
-  render({ company, app, imageSrc, href }) {
+  _render({ company, app, imageSrc, href }) {
     return html`<style>
         :host {
             display: block;
