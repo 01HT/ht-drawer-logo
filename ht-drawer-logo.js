@@ -2,7 +2,7 @@
 import { LitElement, html } from "@polymer/lit-element";
 
 class HTDrawerLogo extends LitElement {
-  _render({ company, app, imageSrc, href }) {
+  _render({ company, app, imageSrc, href, beta }) {
     return html`<style>
         :host {
             display: block;
@@ -40,6 +40,7 @@ class HTDrawerLogo extends LitElement {
             justify-content: center;
             margin-top: 8px;
             font-size: 22px;
+            position:relative;
         }
         
         #company {
@@ -51,6 +52,17 @@ class HTDrawerLogo extends LitElement {
             font-weight: 300;
             color: var(--accent-color);
         }
+
+        #beta {
+          background: var(--secondary-text-color);
+          color: #fff;
+          font-size: 10px;
+          border-radius: 4px;
+          position: absolute;
+          top: -6px;
+          right: -16px;
+          padding: 0 4px;
+        }
       </style>
       <div id="container">
             <a href="${href}">
@@ -58,6 +70,7 @@ class HTDrawerLogo extends LitElement {
                 <div id="text-container">
                     <div id="company">${company}</div>  
                     <div id="app">${app}</div>
+                    <div id="beta" hidden?=${beta ? false : true}>beta</div>
                 </div>
             </a>
         </div>`;
@@ -72,7 +85,8 @@ class HTDrawerLogo extends LitElement {
       company: String,
       app: String,
       imageSrc: String,
-      href: String
+      href: String,
+      beta: Boolean
     };
   }
 }
