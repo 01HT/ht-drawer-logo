@@ -2,8 +2,10 @@
 import { LitElement, html } from "@polymer/lit-element";
 
 class HTDrawerLogo extends LitElement {
-  _render({ company, app, imageSrc, href, beta }) {
-    return html`<style>
+  render() {
+    const { app, company, beta, imageSrc, href } = this;
+    return html`
+    <style>
         :host {
             display: block;
             position: relative;
@@ -36,41 +38,48 @@ class HTDrawerLogo extends LitElement {
         
         #text-container {
             display: flex;
-            flex-direction: row;
-            justify-content: center;
-            margin-top: 8px;
-            font-size: 22px;
+            line-height:1;
+            align-items:flex-end;
+            margin-top: 16px;
             position:relative;
+            line-height: 0.7;
         }
         
         #company {
-            //font-weight: 500;
+          font-size: 12px;
+          color: var(--secondary-text-color);
+          font-weight: 400;
+          margin-left:4px;
+          line-height: 0.7;
         }
         
         #app{
-            margin-left:2px;
+            font-size: 22px;
             font-weight: 300;
-            color: var(--accent-color);
+            letter-spacing: -0.6px;
+            color: #414549;
         }
 
         #beta {
-          background: var(--secondary-text-color);
-          color: #fff;
-          font-size: 10px;
-          border-radius: 4px;
-          position: absolute;
-          top: -6px;
-          right: -16px;
-          padding: 0 4px;
+            background: var(--secondary-text-color);
+            color: #fff;
+            font-size: 10px;
+            border-radius: 4px;
+            position: absolute;
+            top: -12px;
+            line-height: 1;
+            right: -16px;
+            font-weight: 400;
+            padding: 2px 4px;
         }
       </style>
       <div id="container">
-            <a href="${href}">
-                <img src="${imageSrc}" alt="${company} ${app}">
+            <a href=${href}>
+                <img src=${imageSrc} alt="${app} ${company}">
                 <div id="text-container">
-                    <div id="company">${company}</div>  
                     <div id="app">${app}</div>
-                    <div id="beta" hidden?=${beta ? false : true}>beta</div>
+                    <div id="company">by ${company}</div>
+                    <div id="beta" ?hidden=${beta !== ""}>beta</div>
                 </div>
             </a>
         </div>`;
@@ -82,11 +91,11 @@ class HTDrawerLogo extends LitElement {
 
   static get properties() {
     return {
-      company: String,
-      app: String,
-      imageSrc: String,
-      href: String,
-      beta: Boolean
+      company: { type: String },
+      app: { type: String },
+      imageSrc: { type: String },
+      href: { type: String },
+      beta: { type: Boolean }
     };
   }
 }
