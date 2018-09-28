@@ -54,9 +54,9 @@ class HTDrawerLogo extends LitElement {
         }
         
         #app{
-            font-size: 22px;
-            font-weight: 300;
-            letter-spacing: -0.6px;
+            font-size: 24px;
+            font-weight: 400;
+            //letter-spacing: -0.6px;
             color: #414549;
         }
 
@@ -78,7 +78,9 @@ class HTDrawerLogo extends LitElement {
                 <img src=${imageSrc} alt="${app} ${company}">
                 <div id="text-container">
                     <div id="app">${app}</div>
-                    <div id="company">by ${company}</div>
+                    <div id="company" ?hidden=${
+                      company === "" || !company ? true : false
+                    }>by ${company}</div>
                     <div id="beta" ?hidden=${beta !== ""}>beta</div>
                 </div>
             </a>
