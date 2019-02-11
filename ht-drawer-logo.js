@@ -2,23 +2,24 @@
 import { LitElement, html, css } from "lit-element";
 
 class HTDrawerLogo extends LitElement {
-  static styles = css`<style>
-    :host {
+  static get styles() {
+    return css`
+      :host {
         display: block;
         position: relative;
         box-sizing: border-box;
         pointer-events: all;
         height: 192px;
-    }
-    
-    #container {
+      }
+
+      #container {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100%;
-    }
-    
-    a {
+      }
+
+      a {
         display: flex;
         flex-direction: column;
         cursor: pointer;
@@ -26,38 +27,38 @@ class HTDrawerLogo extends LitElement {
         text-decoration: none;
         color: inherit;
         outline: none;
-    }
-    
-    img {
+      }
+
+      img {
         width: 72px;
         height: 72px;
-    }
-    
-    #text-container {
+      }
+
+      #text-container {
         display: flex;
-        line-height:1;
-        align-items:flex-end;
+        line-height: 1;
+        align-items: flex-end;
         margin-top: 16px;
-        position:relative;
+        position: relative;
         line-height: 0.7;
-    }
-    
-    #company {
-      font-size: 12px;
-      color: var(--secondary-text-color);
-      font-weight: 400;
-      margin-left:4px;
-      line-height: 0.7;
-    }
-    
-    #app {
+      }
+
+      #company {
+        font-size: 12px;
+        color: var(--secondary-text-color);
+        font-weight: 400;
+        margin-left: 4px;
+        line-height: 0.7;
+      }
+
+      #app {
         font-size: 24px;
         font-weight: 400;
         //letter-spacing: -0.6px;
         color: #414549;
-    }
+      }
 
-    #beta {
+      #beta {
         background: var(--secondary-text-color);
         color: #fff;
         font-size: 10px;
@@ -68,8 +69,9 @@ class HTDrawerLogo extends LitElement {
         right: -16px;
         font-weight: 400;
         padding: 2px 4px;
-    }
-  </style>`;
+      }
+    `;
+  }
 
   render() {
     const { app, company, beta, imageSrc, href } = this;
